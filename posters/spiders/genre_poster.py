@@ -27,5 +27,5 @@ class GenrePosterSpider(scrapy.Spider):
         home = 'https://letterboxd.com'
         next_url = home + str(response.css('.paginate-next').xpath('@href').extract_first())
         page = int(response.css('.paginate-next').xpath('@href').extract_first().split('/page/')[1].split('/')[0])
-        if page < 70:
+        if page < 71:
             yield scrapy.Request(next_url, self.parse)
